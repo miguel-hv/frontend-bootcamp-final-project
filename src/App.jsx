@@ -1,9 +1,10 @@
+import {Form} from './components';
 import './App.scss';
 
 const App = () => {
   return (
     <div className="app">
-      R-CICLO a tope de pagüer
+     <Form/>
     </div>
   );
 }
