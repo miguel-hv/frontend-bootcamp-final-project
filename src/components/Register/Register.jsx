@@ -6,7 +6,7 @@ const INITIAL_STATE = {
     name: "",
     email: "",
     password: "",
-    addres: [{
+    address: [{
                 street:"", 
                 postalCode:"", 
                 city:"",
@@ -83,61 +83,61 @@ const Register = (props) => {
                         value={form.password}
                     />
                 </label>
-                <label htmlFor="addres">
+                <label htmlFor="street">
                     <p>Dirección</p>
                     <input type="text"
-                            id="addres"
-                            name="addres"
+                            id="street"
+                            name="street"
                             placeholder="Calle, numero y piso."
                             onChange={changeInput}
-                            value={form.addres.street}
+                            value={form.address.street}
                      />
                 </label>
-                <label htmlFor="addres">
+                <label htmlFor="postalCode">
                     <p>Código postal</p>
                     <input type="text"
                             id="postalCode"
                             name="postalCode"
                             placeholder="cp"
                             onChange={changeInput}
-                            value={form.addres.postalCode}
+                            value={form.address.postalCode}
                      />
                 </label>
-                <label htmlFor="addres">
+                <label htmlFor="city">
                     <p>Ciudad</p>
                     <input type="text"
                             id="city"
                             name="city"
                             placeholder="Ciudad"
                             onChange={changeInput}
-                            value={form.addres.city}
+                            value={form.address.city}
                      />
                 </label>
-                <label htmlFor="tpv">
+                <label htmlFor="number">
                     <p>Numero de la tarjeta</p>
                     <input type="text"
-                            id="tpv"
-                            name="tpv"
+                            id="number"
+                            name="number"
                             placeholder="Numero de la tarjeta"
                             onChange={changeInput}
                             value={form.tpv.number}
                      />
                 </label>
-                <label htmlFor="tpv">
+                <label htmlFor="dateExpiry">
                     <p>Fecha de caducidad</p>
                     <input type="text"
-                            id="tpv"
-                            name="tpv"
+                            id="dateExpiry"
+                            name="dateExpiry"
                             placeholder="fecha de caducidad"
                             onChange={changeInput}
                             value={form.tpv.dateExpiry}
                      />
                 </label>
-                <label htmlFor="tpv">
+                <label htmlFor="cvv">
                     <p>Cvv</p>
                     <input type="text"
-                            id="tpv"
-                            name="tpv"
+                            id="cvv"
+                            name="cvv"
                             placeholder="fecha de caducidad"
                             onChange={changeInput}
                             value={form.tpv.cvv}
