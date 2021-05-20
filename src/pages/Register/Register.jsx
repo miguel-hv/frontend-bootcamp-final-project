@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { register } from "../../api/auth.api";
 
 const INITIAL_STATE = {
@@ -11,11 +11,6 @@ const INITIAL_STATE = {
                 postalCode:"", 
                 city:"",
             }],
-    tpv: [{
-            number:"",
-            dateExpiry: "",
-            cvv:"",
-        }],
 };
 
 const Register = (props) => {
@@ -41,12 +36,12 @@ const Register = (props) => {
         setForm({ ...form, [name]: value });
     };
 
-    console.log(props);
+    //console.log(props);
 
     return (
         <>
             <Link to="/login">
-                <h1>Registro</h1>
+                <h1>Login</h1>
             </Link>
             <form onSubmit={submit}>
                 <label htmlFor="name">
@@ -113,37 +108,7 @@ const Register = (props) => {
                             value={form.addres.city}
                      />
                 </label>
-                <label htmlFor="tpv">
-                    <p>Numero de la tarjeta</p>
-                    <input type="text"
-                            id="tpv"
-                            name="tpv"
-                            placeholder="Numero de la tarjeta"
-                            onChange={changeInput}
-                            value={form.tpv.number}
-                     />
-                </label>
-                <label htmlFor="tpv">
-                    <p>Fecha de caducidad</p>
-                    <input type="text"
-                            id="tpv"
-                            name="tpv"
-                            placeholder="fecha de caducidad"
-                            onChange={changeInput}
-                            value={form.tpv.dateExpiry}
-                     />
-                </label>
-                <label htmlFor="tpv">
-                    <p>Cvv</p>
-                    <input type="text"
-                            id="tpv"
-                            name="tpv"
-                            placeholder="fecha de caducidad"
-                            onChange={changeInput}
-                            value={form.tpv.cvv}
-                     />
-                </label>
-
+                
                 <button type="submit">Regístrate</button>
                 {error && <div>{error}</div>}
             </form>
