@@ -1,6 +1,6 @@
 import { useState, useEfefect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Form, Register } from "./components";
+import { Home, Register } from "./pages";
 
 const App = () => {
     const [user, setUser] = useState(null);
@@ -9,8 +9,9 @@ const App = () => {
     return (
       <Router>
         <div className="app">
-            <Form />
+            {/* <Form /> */}
             <Switch>
+                <Route path="/" exact component={Home}  />
                 <Route path="/register" exact component={(props) => <Register {...props} saveUser={saveUser}/>}  />
             </Switch>
         </div>
