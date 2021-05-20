@@ -1,18 +1,19 @@
+
 import { Link } from 'react-router-dom';
 
-const Home = () => {
+const DonationsForm = () => {
 
     return (
         <>
             <header>
-                <div>Home</div>
+                <div>DonationsForm</div>
             </header>
             <body>
-                <Link to="/donations"> Koalas on fire</Link>
+                <Link to="/"> Enviar Formulario</Link>
             </body>
         </>
     )
 
 }
 
-export default Home;
+export default DonationsForm;

@@ -1,18 +1,18 @@
 import { Link } from 'react-router-dom';
 
-const Home = () => {
+const Donations = () => {
 
     return (
         <>
             <header>
-                <div>Home</div>
+                <div>Donations</div>
             </header>
             <body>
-                <Link to="/donations"> Koalas on fire</Link>
+                <Link to="/donations/form"> Donar </Link>
             </body>
         </>
     )
 
 }
 
-export default Home;
+export default Donations;
