@@ -1,27 +1,29 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { register } from "../../api/auth.api";
+//import { register } from "../../api/auth.api";
+import { registerAsync }  from "../../redux/reducers/users.slice";
 
 const INITIAL_STATE = {
     name: "",
     email: "",
     password: "",
     street: "",
-    postalCode: "", //no tiene que ser array
+    postalCode: "", 
     city: "",
-    
 };
 
 const Register = (props) => {
     const [form, setForm] = useState(INITIAL_STATE);
+    const dispatch = useDispatch();
     const [error, setError] = useState("");
 
     const submit = async (ev) => {
         ev.preventDefault();
 
         try {
-            const user = await register(form);
-            props.saveUser(user);
+            dispatch(registerAsync(form))
+            setForm(INITIAL_STATE);
             props.history.push("/");
         } catch (error) {
             setError(error.message);
@@ -35,15 +37,13 @@ const Register = (props) => {
         setForm({ ...form, [name]: value });
     };
 
-    //console.log(props);
-
     return (
         <>
             <Link to="/login">
                 <h1>Login</h1>
             </Link>
             <form onSubmit={submit}>
-                <label htmlFor="name">
+                <label>
                     <p>Nombre de usuarie</p>
                     <input
                         type="text"
@@ -54,7 +54,7 @@ const Register = (props) => {
                         value={form.name}
                     />
                 </label>
-                <label htmlFor="email">
+                <label>
                     <p>Email</p>
                     <input
                         type="email"
@@ -66,7 +66,7 @@ const Register = (props) => {
                     />
                 </label>
 
-                <label htmlFor="password">
+                <label>
                     <p>Password</p>
                     <input
                         type="password"
@@ -77,7 +77,7 @@ const Register = (props) => {
                         value={form.password}
                     />
                 </label>
-                <label htmlFor="address">
+                <label>
                     <p>Dirección</p>
                     <input
                         type="text"
@@ -88,7 +88,7 @@ const Register = (props) => {
                         value={form.street}
                     />
                 </label>
-                <label htmlFor="address">
+                <label>
                     <p>Código postal</p>
                     <input
                         type="text"
@@ -99,7 +99,7 @@ const Register = (props) => {
                         value={form.postalCode}
                     />
                 </label>
-                <label htmlFor="address">
+                <label>
                     <p>Ciudad</p>
                     <input
                         type="text"
