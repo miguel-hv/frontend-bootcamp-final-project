@@ -61,26 +61,24 @@ const PickupsForm = () => {
     
     return(
         <div className="pets-create">
-        <h1>
-            Formulario de recogida
-        </h1>
+            <h1>
+                Formulario de recogida
+            </h1>
 
-        {renderStep()}
-        
-        <button
-            onClick={() => dispatch(stepBackward())}
-            disabled={actualStep <= 1}
-        >
-            Anterior
-        </button>
-        {isLastStep && <button onClick={() => dispatch(stepForward())}>Siguiente</button>}
+            {renderStep()}
+            
+            <button
+                onClick={() => dispatch(stepBackward())}
+                disabled={actualStep <= 1}
+            >
+                Anterior
+            </button>
+            {isLastStep && <button onClick={() => dispatch(stepForward())}>Siguiente</button>}
 
-        {actualStep === 3 && <div style={{margin: '24px 0px'}}>
-            <button onClick={submitForm}>SUBMIT FORM</button>
-        </div>}
-    </div>
-
-
+            {actualStep === 3 && <div>
+                <button onClick={submitForm}>SUBMIT FORM</button>
+            </div>}
+        </div>
     )    
 }
 
