@@ -1,4 +1,4 @@
-import { useState, useEfefect } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Footer } from './components';
 import { 
@@ -9,9 +9,27 @@ import {
     Pickups,
     PickupsForm,
  } from "./pages";
+ import { checkSession } from './api/auth.api';
 
 const App = () => {
     const [user, setUser] = useState(null);
+    
+    useEffect(() => {
+        checkUserSession();
+    }, []);
+
+    const checkUserSession = async () => {
+        try {
+            const user = await checkSession();
+            if (!user.message) {
+                saveUser(user);
+            }else {
+                saveUser(false);
+            }
+        }catch(error) {
+            console.log('Error', error);
+        }
+    };
 
     const saveUser = (user) => setUser(user);
     return (
