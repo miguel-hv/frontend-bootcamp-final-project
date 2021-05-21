@@ -3,14 +3,12 @@ import { login, logout, register, checkSession } from "../../api/auth.api";
 
 const INITIAL_STATE = {
     user: null,
-    error: '',
+    error: "",
 };
 
-export const registerAsync = createAsyncThunk('user/register', async (form) => {
+export const registerAsync = createAsyncThunk("user/register", async (form) => {
     return await register(form);
 });
-
-
 
 export const loginAsync = createAsyncThunk("auth/login", async (payload) => ({
     response: await login(payload.form),
@@ -32,38 +30,36 @@ export const userSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(registerAsync.fulfilled, (state, action) => {
-
                 state.user = action.payload;
                 //const { response, cb } = action.payload;
 
-            //     if (response.message) state.error = response.message;
-            //     else {
-            //         state.user = response;
-            //         state.error = '';
-            //         cb();
-            //     };
-           })
+                //     if (response.message) state.error = response.message;
+                //     else {
+                //         state.user = response;
+                //         state.error = '';
+                //         cb();
+                //     };
+            })
             .addCase(loginAsync.fulfilled, (state, action) => {
                 const { response, cb } = action.payload;
 
                 if (response.message) state.error = response.message;
                 else {
                     state.user = response;
-                    state.error = '';
+                    state.error = "";
                     cb();
-                };
-
+                }
             })
             .addCase(logoutAsync.fulfilled, (state, action) => {
                 const { response, cb } = action.payload;
 
-                if (response.message !== 'Logout successful') state.error = response.message;
+                if (response.message !== "Logout successful")
+                    state.error = response.message;
                 else {
                     state.user = false;
-                    state.error = '';
+                    state.error = "";
                     cb();
-                };
-
+                }
             })
             .addCase(checkSessionAsync.fulfilled, (state, action) => {
                 const { message } = action.payload;
@@ -71,7 +67,5 @@ export const userSlice = createSlice({
                 if (!message) state.user = action.payload;
                 else state.user = false;
             });
-
-
-    }
+    },
 });

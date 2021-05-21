@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-//import { register } from "../../api/auth.api";
 import { registerAsync }  from "../../redux/reducers/users.slice";
 
 const INITIAL_STATE = {
