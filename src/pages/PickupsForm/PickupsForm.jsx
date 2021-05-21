@@ -11,8 +11,7 @@ import Step5 from './steps/Step5';
 
 const PickupsForm = () => {
     const dispatch = useDispatch();
-    const { actualStep, form } = useSelector(state => state.pets);
-    const [image, setImage] = useState(null);
+    const { actualStep, form } = useSelector(state => state.itemsToPickup);
 
     const renderStep = () => {
         const actualStepComponent = steps[actualStep - 1];
@@ -20,12 +19,6 @@ const PickupsForm = () => {
         if (actualStepComponent) return actualStepComponent;
         else return null;
     };
-
-    // const addFile = (ev) => {
-    //     const img = ev.target.files[0];
-
-    //     if (img) setImage(img);
-    // };
 
     const submitForm = async (ev) => {
         ev.preventDefault();
@@ -75,7 +68,7 @@ const PickupsForm = () => {
             </button>
             {isLastStep && <button onClick={() => dispatch(stepForward())}>Siguiente</button>}
 
-            {actualStep === 3 && <div>
+            {actualStep === 5 && <div>
                 <button onClick={submitForm}>SUBMIT FORM</button>
             </div>}
         </div>
