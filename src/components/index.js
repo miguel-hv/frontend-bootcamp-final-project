@@ -1,7 +1,5 @@
-import Form from './Form/Form'
-import Register from './Register/Register'
+import Footer from './Footer/Footer'; 
 
 export {
-    Form,
-    Register,
-}
+    Footer,
+};
