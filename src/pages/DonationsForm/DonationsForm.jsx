@@ -29,13 +29,16 @@ const DonationsForm = (props) => {
 
         dispatch(addDonation(form.quantity));
         redirect();
-        setForm(INITIAL_STATE);
+        // setForm(INITIAL_STATE);
     };
 
     const changeInput = (ev) => {
-        const { name, value } = ev.target;
-
-        setForm({ ...form, [name]: value });
+        const { name, value, type } = ev.target;
+        let parsedValue = value;
+        if (type === 'number'){
+            parsedValue = Number(value);
+        }
+        setForm({ ...form, [name]: parsedValue });
     };
 
     return (
