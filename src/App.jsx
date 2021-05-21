@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Footer } from './components';
+import { Footer, LogoutButton } from './components';
 import { 
     Home, 
     Donations, 
@@ -11,6 +11,8 @@ import {
     Login,
  } from "./pages";
  import { checkSession } from './api/auth.api';
+import Navbar from './components/Navbar/Navbar';
+
 
 const App = () => {
     const [user, setUser] = useState(null);
@@ -36,6 +38,8 @@ const App = () => {
     return (
       <Router>
         <div className="app">
+        <Navbar/>
+        <LogoutButton saveUser={saveUser}/>
             {/* <Form /> */}
             <Switch>
                 <Route path="/" exact component={ Home }/>

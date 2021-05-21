@@ -1,7 +1,6 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const Home = () => {
-
     return (
         <>
             <header>
@@ -11,8 +10,7 @@ const Home = () => {
                 <Link to="/donations"> Koalas on fire</Link>
             </body>
         </>
-    )
-
-}
+    );
+};
 
 export default Home;
