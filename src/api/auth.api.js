@@ -9,7 +9,7 @@ export const register = async (form) => {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*'
+            'Access-Control-Allow-Origin': '*',
         },
         credentials: 'include',
         body: JSON.stringify(form),
