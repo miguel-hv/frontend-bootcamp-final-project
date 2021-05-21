@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { counterSlice } from './reducers/counter.slice'; //borrar (solo para muestra)
+import { pickupsSlice } from './reducers/pickups.slice';
+import { donationsSlice } from './reducers/donations.slice';
 
 export default configureStore({
     reducer: {
-        counter: counterSlice.reducer, //borrar  (solo para muestra)
+        pets: pickupsSlice.reducer,
+        donations: donationsSlice.reducer,
     }
 });
