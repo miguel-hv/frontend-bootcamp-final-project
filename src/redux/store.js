@@ -11,3 +11,4 @@ export default configureStore({
         user: userSlice.reducer,
     }
 });
+
