@@ -42,7 +42,9 @@ const App = () => {
                 <Route path="/donations/form" exact component={ DonationsForm }/>
                 <Route path="/pickups" exact component={ Pickups }/>
                 <Route path="/pickups/form" exact component={ PickupsForm }/>
-                <Route path="/register" exact component={(props) => <Register {...props} saveUser={saveUser}/>}  />
+                <Route path="/register" exact component={(props) => { 
+                console.log(props);
+                return <Register {...props} saveUser={saveUser}/>}}  />
             </Switch>
             <Footer/>
         </div>

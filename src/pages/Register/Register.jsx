@@ -6,11 +6,10 @@ const INITIAL_STATE = {
     name: "",
     email: "",
     password: "",
-    addres: [{
-                street:"", 
-                postalCode:"", 
-                city:"",
-            }],
+    street: "",
+    postalCode: "", //no tiene que ser array
+    city: "",
+    
 };
 
 const Register = (props) => {
@@ -23,10 +22,10 @@ const Register = (props) => {
         try {
             const user = await register(form);
             props.saveUser(user);
-            setForm(INITIAL_STATE);
             props.history.push("/");
         } catch (error) {
             setError(error.message);
+            console.log(error);
         }
     };
 
@@ -78,37 +77,40 @@ const Register = (props) => {
                         value={form.password}
                     />
                 </label>
-                <label htmlFor="addres">
+                <label htmlFor="address">
                     <p>Dirección</p>
-                    <input type="text"
-                            id="addres"
-                            name="addres"
-                            placeholder="Calle, numero y piso."
-                            onChange={changeInput}
-                            value={form.addres.street}
-                     />
+                    <input
+                        type="text"
+                        id="address"
+                        name="street"
+                        placeholder="Calle, numero y piso."
+                        onChange={changeInput}
+                        value={form.street}
+                    />
                 </label>
-                <label htmlFor="addres">
+                <label htmlFor="address">
                     <p>Código postal</p>
-                    <input type="text"
-                            id="postalCode"
-                            name="postalCode"
-                            placeholder="cp"
-                            onChange={changeInput}
-                            value={form.addres.postalCode}
-                     />
+                    <input
+                        type="text"
+                        id="postalCode"
+                        name="postalCode"
+                        placeholder="cp"
+                        onChange={changeInput}
+                        value={form.postalCode}
+                    />
                 </label>
-                <label htmlFor="addres">
+                <label htmlFor="address">
                     <p>Ciudad</p>
-                    <input type="text"
-                            id="city"
-                            name="city"
-                            placeholder="Ciudad"
-                            onChange={changeInput}
-                            value={form.addres.city}
-                     />
+                    <input
+                        type="text"
+                        id="city"
+                        name="city"
+                        placeholder="Ciudad"
+                        onChange={changeInput}
+                        value={form.city}
+                    />
                 </label>
-                
+
                 <button type="submit">Regístrate</button>
                 {error && <div>{error}</div>}
             </form>
