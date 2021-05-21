@@ -8,6 +8,7 @@ import {
     Register, 
     Pickups,
     PickupsForm,
+    Login,
  } from "./pages";
  import { checkSession } from './api/auth.api';
 
@@ -45,6 +46,7 @@ const App = () => {
                 <Route path="/register" exact component={(props) => { 
                 console.log(props);
                 return <Register {...props} saveUser={saveUser}/>}}  />
+                <Route path="/login" exact component={(props) => <Login {...props} saveUser={saveUser} />} />
             </Switch>
             <Footer/>
         </div>
