@@ -6,6 +6,7 @@ const Footer = () => {
         <>
         <div>Footer</div>
         <Link to="/pickups"> Icono camión</Link>
+        <Link to="/"> Home</Link>
         </>
     )
 }
