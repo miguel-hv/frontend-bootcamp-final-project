@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Footer, LogoutButton } from './components';
+import { Footer, LogoutButton, Navbar } from './components';
 import { 
     Home, 
     Donations, 
@@ -11,7 +11,8 @@ import {
     Login,
  } from "./pages";
  import { checkSession } from './api/auth.api';
-import Navbar from './components/Navbar/Navbar';
+ import './App.scss'
+
 
 
 const App = () => {
