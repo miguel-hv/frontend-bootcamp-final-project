@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useDispatch } from 'react-redux';
-// import {causeDonationAsync } from '../../redux/reducers/donations.slice';
 import { causeDonation } from '../../api/donation.api';
 import { Link } from 'react-router-dom';
 
 
 const INITIAL_STATE = {
+    cause: "Incendios en Australia",
     quantity: "",
     name: "",
     surname: "",
@@ -24,19 +24,18 @@ const DonationsForm = (props) => {
     const redirect = () => props.history.push('/');
 
     const submit = async (ev) => {
+
         ev.preventDefault();
-        console.log('cantidad formulario:'+form.quantity);
-        // dispatch(causeDonationAsync(form.quantity));
+        const donationData = {cause: form.cause, donation: form.quantity,};
+
         try {
-           causeDonation(form.quantity);
+           causeDonation(donationData);
             // setForm(INITIAL_STATE);
-            props.history.push("/");
+            redirect();
         } catch (error) {
-            // setError(error.message);
-            console.log('error dispathc');
+            //HACER: gestionar error
+            console.log('error dispatch');
         }
-        // dispatch(causeDonationAsync(123));
-        // setForm(INITIAL_STATE);
     };
 
     const changeInput = (ev) => {

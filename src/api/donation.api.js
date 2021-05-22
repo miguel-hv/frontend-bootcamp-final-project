@@ -10,7 +10,7 @@ export const causeDonation = async (donation) => {
         //    'Access-Control-Allow-Origin': '*' // CORS
         },
         credentials: 'include',        
-        body: JSON.stringify({donation})
+        body: JSON.stringify(donation)
     });
 
     const response = await request.json();
