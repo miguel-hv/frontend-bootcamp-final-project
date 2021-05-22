@@ -5,6 +5,7 @@ import DonationsForm from './DonationsForm/DonationsForm';
 import Register from './Register/Register';
 import Pickups from './Pickups/Pickups'
 import PickupsForm from './PickupsForm/PickupsForm'
+import Login from './Login/Login';
 
 export {
     
@@ -14,4 +15,5 @@ export {
     Register,
     Pickups,
     PickupsForm,
+    Login,
 };

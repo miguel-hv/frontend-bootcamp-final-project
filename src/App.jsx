@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Footer } from './components';
+import { Footer, LogoutButton, Navbar } from './components';
 import { 
     Home, 
     Donations, 
@@ -8,8 +8,12 @@ import {
     Register, 
     Pickups,
     PickupsForm,
+    Login,
  } from "./pages";
  import { checkSession } from './api/auth.api';
+ import './App.scss'
+
+
 
 const App = () => {
     const [user, setUser] = useState(null);
@@ -35,6 +39,8 @@ const App = () => {
     return (
       <Router>
         <div className="app">
+        <Navbar/>
+        <LogoutButton saveUser={saveUser}/>
             {/* <Form /> */}
             <Switch>
                 <Route path="/" exact component={ Home }/>
@@ -42,7 +48,10 @@ const App = () => {
                 <Route path="/donations/form" exact component={ DonationsForm }/>
                 <Route path="/pickups" exact component={ Pickups }/>
                 <Route path="/pickups/form" exact component={ PickupsForm }/>
-                <Route path="/register" exact component={(props) => <Register {...props} saveUser={saveUser}/>}  />
+                <Route path="/register" exact component={(props) => { 
+                console.log(props);
+                return <Register {...props} saveUser={saveUser}/>}}  />
+                <Route path="/login" exact component={(props) => <Login {...props} saveUser={saveUser} />} />
             </Switch>
             <Footer/>
         </div>

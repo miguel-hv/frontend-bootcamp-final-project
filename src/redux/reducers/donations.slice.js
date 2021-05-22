@@ -1,18 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+
 const INITIAL_STATE = {
-    user: null,
-    donatedQuantity: 0,
+    donation: 0,
+    cause: "prueba",
+    response: '',
     error: '',
 }
+
 
 export const donationsSlice = createSlice({
     name: 'donations',
     initialState: INITIAL_STATE,
     reducers: {
-        addDonation: (state, action) => {
-            state.donatedQuantity += action.payload;
-        },
     },
    
 });
