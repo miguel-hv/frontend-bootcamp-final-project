@@ -65,7 +65,7 @@ export const logout = async () => {
         headers: {
            'Accept': 'application/json',
            'Content-Type': 'application/json',
-           'Access-Control-Allow-Origin': '*' // CORS
+           'Access-Control-Allow-Origin': '*' 
         },
         credentials: 'include',
     });
