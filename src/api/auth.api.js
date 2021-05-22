@@ -2,7 +2,6 @@ const registerUrl = "http://localhost:3500/auth/register";
 const loginUrl = "http://localhost:3500/auth/login";
 const checkSessionUrl = "http://localhost:3500/auth/check-session";
 const logoutUrl = "http://localhost:3500/auth/logout";
-const causeDonationUrl = "http://localhost:3500/causes/donation";
 
 
 export const register = async (form) => {
@@ -75,18 +74,3 @@ export const logout = async () => {
     return response;
 };
 
-export const causeDonation = async () => {
-    const request = await fetch(causeDonationUrl, {
-        method: 'POST',
-        headers: {
-           'Accept': 'application/json',
-           'Content-Type': 'application/json',
-           'Access-Control-Allow-Origin': '*' // CORS
-        },
-        credentials: 'include',
-    });
-
-    const response = await request.json();
-
-    return response;
-};

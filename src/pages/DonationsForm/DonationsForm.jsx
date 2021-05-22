@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from 'react-redux';
-import {causeDonationAsync } from '../../redux/reducers/donations.slice';
+// import {causeDonationAsync } from '../../redux/reducers/donations.slice';
+import { causeDonation } from '../../api/donation.api';
 import { Link } from 'react-router-dom';
 
 
@@ -26,7 +27,15 @@ const DonationsForm = (props) => {
         ev.preventDefault();
         console.log('cantidad formulario:'+form.quantity);
         // dispatch(causeDonationAsync(form.quantity));
-        dispatch(causeDonationAsync(123));
+        try {
+           causeDonation(form.quantity);
+            // setForm(INITIAL_STATE);
+            props.history.push("/");
+        } catch (error) {
+            // setError(error.message);
+            console.log('error dispathc');
+        }
+        // dispatch(causeDonationAsync(123));
         // setForm(INITIAL_STATE);
     };
 
