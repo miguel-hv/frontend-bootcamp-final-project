@@ -1,29 +1,30 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { causeDonationPost} from "../../api/auth.api";
+import { causeDonation} from "../../api/auth.api";
 
 
 const INITIAL_STATE = {
-    user: null,
-    donatedQuantity: 0,
+    donation: 0,
+    cause: "prueba",
     error: '',
 }
 
 export const causeDonationAsync = createAsyncThunk("cause/donation", async (donation) => {
-    return await causeDonationPost(donation);
+    console.log("causeDonationAsync :"+donation)
+    return await causeDonation(donation);
 });
 
 export const donationsSlice = createSlice({
     name: 'donations',
     initialState: INITIAL_STATE,
     reducers: {
-        addDonation: (state, action) => {
-            state.donatedQuantity += action.payload;
-        },
+        // addDonation: (state, action) => {
+        //     state.donatedQuantity += action.payload;
+        // },
     },
     extraReducers: (builder) => {
         builder
             .addCase(causeDonationAsync.fulfilled, (state, action) => {
-                state.user = action.payload;
+                state.donation = action.payload;
                 //const { response, cb } = action.payload;
 
                 //     if (response.message) state.error = response.message;

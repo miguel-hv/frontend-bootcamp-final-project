@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useDispatch } from 'react-redux';
-import { addDonation } from '../../redux/reducers/donations.slice';
+import {causeDonationAsync } from '../../redux/reducers/donations.slice';
 import { Link } from 'react-router-dom';
 
 
 const INITIAL_STATE = {
-    quantity: 0,
+    quantity: "",
     name: "",
     surname: "",
     hideName: false,
@@ -24,11 +24,9 @@ const DonationsForm = (props) => {
 
     const submit = async (ev) => {
         ev.preventDefault();
-
-        console.log('formulario donations enviado');
-
-        dispatch(addDonation(form.quantity));
-        redirect();
+        console.log('cantidad formulario:'+form.quantity);
+        // dispatch(causeDonationAsync(form.quantity));
+        dispatch(causeDonationAsync(123));
         // setForm(INITIAL_STATE);
     };
 

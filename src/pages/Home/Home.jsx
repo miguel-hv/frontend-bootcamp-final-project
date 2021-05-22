@@ -4,16 +4,10 @@ import "./Home.scss"
 
 const Home = () => {
     return (
-        <>
-        <div className="home-container">
-            <header>
+            <div className="home-container">
                 <div>Home</div>
-            </header>
-            <body>
                 <Link to="/donations"> Koalas on fire</Link>
-            </body>
             </div>
-        </>
     );
 };
 

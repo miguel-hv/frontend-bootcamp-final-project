@@ -75,7 +75,7 @@ export const logout = async () => {
     return response;
 };
 
-export const causeDonationPost = async () => {
+export const causeDonation = async () => {
     const request = await fetch(causeDonationUrl, {
         method: 'POST',
         headers: {
