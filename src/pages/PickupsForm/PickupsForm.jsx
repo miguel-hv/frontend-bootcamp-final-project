@@ -1,7 +1,6 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { stepBackward, stepForward, addPet, resetForm } from '../../redux/reducers/pickups.slice';
-// import {createPet} from '../../api/pets.api';
 import Step1 from './steps/Step1';
 import Step2 from './steps/Step2';
 import Step3 from './steps/Step3';

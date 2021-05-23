@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from "react-redux";
-import { changeFormField } from "../../../redux/reducers/pickups.slice";
 
 const Step3 = () => {
     const dispatch = useDispatch();
