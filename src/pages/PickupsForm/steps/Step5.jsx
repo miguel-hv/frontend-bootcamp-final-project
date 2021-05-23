@@ -2,8 +2,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 const Step3 = () => {
     const dispatch = useDispatch();
-    const form = useSelector((state) => state.pets.form);
-
         // dispatch(changeFormField({name, value: tempValue}));
    
     return (

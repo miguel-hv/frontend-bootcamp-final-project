@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { causesAsync } from '../../redux/reducers/causes.slice';
 import { CauseCard } from '../../components';
-import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSync } from "@fortawesome/free-solid-svg-icons";
 
@@ -31,9 +30,7 @@ const Home = () => {
             <div className="home-container">
                
                 <h1>R-cicl <FontAwesomeIcon icon={faSync} /></h1>
-                <div>
-                    <img src="" alt="user avatar" />
-                </div>
+
                 {user &&  <div>
                     <div>
                         <img src={user.image} alt="avatar" />
@@ -48,7 +45,6 @@ const Home = () => {
                 return <CauseCard key={`${cause._id}-${cause.name}`} cause={cause} />;
             })}
                 </div>
-                {/* <Link to="/donations"> Koalas on fire</Link> */}
             </div>
         </>    
     );
