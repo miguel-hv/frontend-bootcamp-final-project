@@ -4,6 +4,7 @@ import { changeFormField } from "../../../redux/reducers/pickups.slice";
 const Step2 = () => {
     const dispatch = useDispatch();
     const form = useSelector((state) => state.pickups.form);
+    const testAddress = 'C/ Prueba 13 3ºB 55541 Madrid';
 
     const inputChange = (ev) => {
         const {name, value, type, checked} = ev.target;
@@ -19,15 +20,14 @@ const Step2 = () => {
         <>
             <h2>Paso 2</h2>
             <form>
-                <p>Inputs paso 2</p>
                 <label htmlFor="address">
-                    <p>Dirección</p>
+                    <p>{testAddress}</p>
                     <input
                         type="checkbox"
                         id="address"
                         name="address"
                         onChange={inputChange}
-                        value={form.address}
+                        // value={testAddress}
                     />
                 </label>
             </form>

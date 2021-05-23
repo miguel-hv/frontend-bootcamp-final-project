@@ -51,7 +51,7 @@ const PickupsForm = () => {
             </button>
             {isLastStep && <button onClick={() => dispatch(stepForward())}>Siguiente</button>}
 
-            {actualStep === 3 && <div>
+            {actualStep === 5 && <div>
                 <button onClick={submitForm}>SUBMIT FORM</button>
             </div>}
         </div>

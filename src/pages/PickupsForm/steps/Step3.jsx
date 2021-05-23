@@ -17,15 +17,16 @@ const Step3 = () => {
     };
     return (
         <>
-            <h2>Paso 2</h2>
+            <h2>Paso 3</h2>
             <form>
                 <label htmlFor="paymentCard">
-                <p>Forma de pago</p>
-                    <input type="checkbox"
-                            id="paymentCard"
-                            name="paymentCard"
-                            onChange={inputChange}
-                            value={form.paymentCard}
+                <p>Tarjeta acabada en 1234</p>
+                    <input 
+                        type="checkbox"
+                        id="paymentCard"
+                        name="paymentCard"
+                        onChange={inputChange}
+                        value={form.paymentCard}
                      />
                 </label>
             </form>
