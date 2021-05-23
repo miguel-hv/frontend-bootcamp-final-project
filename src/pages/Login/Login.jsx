@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { login } from "../../api/auth.api";
+import { useDispatch, useSelector } from 'react-redux';
+import { loginAsync } from '../../redux/reducers/user.slice';
 
 const INITIAL_STATE = {
     email: "",
@@ -7,21 +8,20 @@ const INITIAL_STATE = {
 };
 
 const Login = (props) => {
+    const dispatch = useDispatch();
     const [form, setForm] = useState(INITIAL_STATE);
-    const [error, setError] = useState("");
+    const error = useSelector(state => state.user.error);
+
+    const redirect = () => props.history.push('/');
 
     const submit = async (ev) => {
         ev.preventDefault();
 
-        try {
-            const user = await login(form);
-            props.saveUser(user);
-            setForm(INITIAL_STATE);
-            props.history.push("/");
-            console.log(user, "logadisisisimo");
-        } catch (error) {
-            setError(error.message);
-        }
+        dispatch(loginAsync({
+            form,
+            cb: redirect,
+        }));
+        setForm(INITIAL_STATE);
     };
 
     const changeInput = (ev) => {
@@ -30,11 +30,6 @@ const Login = (props) => {
         setForm({ ...form, [name]: value });
     };
 
-    const redirect = () => {
-        props.history.push({
-            pathname: "/register",
-        });
-    };
 
     return (
         <>
@@ -63,7 +58,7 @@ const Login = (props) => {
                 </label>
                 <button type="submit">Lógate</button>
 
-                {error && <div>{error}</div>}
+                {error && <div className="error">{error}</div>}
             </form>
         </>
     );

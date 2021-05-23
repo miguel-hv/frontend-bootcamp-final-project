@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import { registerAsync } from "../../redux/reducers/users.slice";
+import { useDispatch, useSelector } from "react-redux";
+import { registerAsync } from "../../redux/reducers/user.slice";
 
 const INITIAL_STATE = {
     name: "",
@@ -14,21 +13,21 @@ const INITIAL_STATE = {
 };
 
 const Register = (props) => {
-    const [form, setForm] = useState(INITIAL_STATE);
     const dispatch = useDispatch();
-    const [error, setError] = useState("");
+    const [form, setForm] = useState(INITIAL_STATE);
+    const error = useSelector(state => state.user.error);
+
+    const redirect = () => props.history.push('/');
 
     const submit = async (ev) => {
         ev.preventDefault();
 
-        try {
-            dispatch(registerAsync(form));
-            setForm(INITIAL_STATE);
-            props.history.push("/");
-        } catch (error) {
-            setError(error.message);
-            console.log(error);
-        }
+
+        dispatch(registerAsync({
+            form,
+            // cb: redirect,
+        }));
+        setForm(INITIAL_STATE);
     };
 
     const changeInput = (ev) => {
@@ -39,9 +38,6 @@ const Register = (props) => {
 
     return (
         <>
-            <Link to="/login">
-                <h1>Login</h1>
-            </Link>
             <form onSubmit={submit} encType="multipart/form-data">
                 <label>
                     <p>Nombre de usuarie</p>
@@ -115,7 +111,8 @@ const Register = (props) => {
                 </label>
 
                 <button type="submit">Regístrate</button>
-                {error && <div>{error}</div>}
+
+                {error && <div className="error">{error}</div>}
             </form>
         </>
     );

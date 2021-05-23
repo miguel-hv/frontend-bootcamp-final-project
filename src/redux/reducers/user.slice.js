@@ -6,8 +6,11 @@ const INITIAL_STATE = {
     error: "",
 };
 
-export const registerAsync = createAsyncThunk("user/register", async (form) => {
-    return await register(form);
+export const registerAsync = createAsyncThunk("user/register", async (payload) => {
+        return {
+        response: await register(payload.form),
+        // cb: payload.cb
+    }
 });
 
 export const loginAsync = createAsyncThunk("auth/login", async (payload) => ({
@@ -30,15 +33,15 @@ export const userSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(registerAsync.fulfilled, (state, action) => {
-                state.user = action.payload;
-                //const { response, cb } = action.payload;
+                const { response, cb } = action.payload;
 
-                //     if (response.message) state.error = response.message;
-                //     else {
-                //         state.user = response;
-                //         state.error = '';
-                //         cb();
-                //     };
+                if (response.message) state.error = response.message;
+                else {
+                    state.user = response;
+                    state.error = '';
+                    // cb();
+                };
+
             })
             .addCase(loginAsync.fulfilled, (state, action) => {
                 const { response, cb } = action.payload;
