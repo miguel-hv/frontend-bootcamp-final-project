@@ -3,36 +3,33 @@ const loginUrl = "http://localhost:3500/auth/login";
 const checkSessionUrl = "http://localhost:3500/auth/check-session";
 const logoutUrl = "http://localhost:3500/auth/logout";
 
-
 export const register = async (form) => {
-   
-    const request = await fetch (registerUrl, {
-        method: 'POST',
+    const request = await fetch(registerUrl, {
+        method: "POST",
         headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
         },
-        credentials: 'include',
+        credentials: "include",
         body: JSON.stringify(form),
     });
     const response = await request.json();
-    console.log("esto lleva la request.json en auth.api")
-    if (!request.ok){
+
+    if (!request.ok) {
         throw new Error(response.message);
-    
     }
     return response;
 };
 export const login = async (form) => {
     const request = await fetch(loginUrl, {
-        method: 'POST',
+        method: "POST",
         headers: {
-           'Accept': 'application/json',
-           'Content-Type': 'application/json',
-           'Access-Control-Allow-Origin': '*' 
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
         },
-        credentials: 'include',
+        credentials: "include",
         body: JSON.stringify(form),
     });
     const response = await request.json();
@@ -45,13 +42,13 @@ export const login = async (form) => {
 
 export const checkSession = async (form) => {
     const request = await fetch(checkSessionUrl, {
-        method: 'GET',
+        method: "GET",
         headers: {
-           'Accept': 'application/json',
-           'Content-Type': 'application/json',
-           'Access-Control-Allow-Origin': '*' 
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
         },
-        credentials: 'include',
+        credentials: "include",
     });
     const response = await request.json();
 
@@ -60,17 +57,16 @@ export const checkSession = async (form) => {
 
 export const logout = async () => {
     const request = await fetch(logoutUrl, {
-        method: 'POST',
+        method: "POST",
         headers: {
-           'Accept': 'application/json',
-           'Content-Type': 'application/json',
-           'Access-Control-Allow-Origin': '*' 
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
         },
-        credentials: 'include',
+        credentials: "include",
     });
 
     const response = await request.json();
 
     return response;
 };
-

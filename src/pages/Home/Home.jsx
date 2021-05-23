@@ -22,17 +22,17 @@ const Home = () => {
 
 
     return (
+        <>
             <div className="home-container">
                 <div>Home</div>
                 <div>
-                    {allCauses[0].name}
                     {allCauses.map((cause) => {
                 return <CauseCard key={cause._id} cause={cause} />;
             })}
-
                 </div>
                 <Link to="/donations"> Koalas on fire</Link>
             </div>
+        </>    
     );
 };
 
