@@ -3,7 +3,7 @@ import { changeFormField } from "../../../redux/reducers/pickups.slice";
 
 const Step2 = () => {
     const dispatch = useDispatch();
-    const form = useSelector((state) => state.pets.form);
+    const form = useSelector((state) => state.pickups.form);
 
     const inputChange = (ev) => {
         const {name, value, type, checked} = ev.target;

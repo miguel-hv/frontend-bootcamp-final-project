@@ -2,7 +2,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const INITIAL_STATE = {
-    pets: [],
     form: {
         date: '',
         time: '',
@@ -29,9 +28,6 @@ export const pickupsSlice = createSlice({
             
             state.form[name] = value;
         },
-        addPet: (state, action) => {
-            state.pets = [...state.pets, action.payload];
-        }, 
         resetForm: (state) => {
             state.form = INITIAL_STATE.form;
         },
@@ -42,6 +38,5 @@ export const {
     stepBackward,
     stepForward,
     changeFormField,
-    addPet,
     resetForm,
 } = pickupsSlice.actions;
