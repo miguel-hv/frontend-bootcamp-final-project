@@ -1,11 +1,16 @@
 import { Link } from "react-router-dom";
+import "./Navbar.scss";
 
 const Navbar = () => {
     return (
         <>
-            <nav>
-                <Link to="/register">Regístrate</Link>
-                <Link to="/login">Lógate</Link>
+            <nav className="navbar">
+                <div className="link-box">
+                    <Link to="/register">Regístrate</Link>
+                </div>   
+                <div>
+                    <Link to="/login">Lógate</Link>
+                </div> 
             </nav>
         </>
     );

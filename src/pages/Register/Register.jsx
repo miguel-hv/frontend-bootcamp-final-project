@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { registerAsync } from "../../redux/reducers/users.slice";
+import "./Register.scss";
+
 
 const INITIAL_STATE = {
     name: "",
@@ -39,84 +41,86 @@ const Register = (props) => {
 
     return (
         <>
-            <Link to="/login">
-                <h1>Login</h1>
-            </Link>
-            <form onSubmit={submit} encType="multipart/form-data">
-                <label>
-                    <p>Nombre de usuarie</p>
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="Nombre"
-                        onChange={changeInput}
-                        value={form.name}
-                    />
-                </label>
-                <label>
-                    <p>Email</p>
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="tuemail@email.com"
-                        onChange={changeInput}
-                        value={form.email}
-                    />
-                </label>
-                <label>
-                    <p>Foto de perfil</p>
-                    <input
-                        type="file"
-                        name="image"
-                        onChange={changeInput}
-                        value={form.image}
-                    />
-                </label>
+            {/* <Link to="/login">
+                <h4>Ve a login</h4>
+            </Link> */}
+            <div className="form-box">
+                <form onSubmit={submit} encType="multipart/form-data">
+                    <label>
+                        <p>Nombre de usuarie</p>
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Nombre"
+                            onChange={changeInput}
+                            value={form.name}
+                        />
+                    </label>
+                    <label>
+                        <p>Email</p>
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="tuemail@email.com"
+                            onChange={changeInput}
+                            value={form.email}
+                        />
+                    </label>
+                    <label>
+                        <p>Foto de perfil</p>
+                        <input 
+                            type="file"
+                            name="image"
+                            onChange={changeInput}
+                            value={form.image}
+                        />
+                    </label>
 
-                <label>
-                    <p>Password</p>
-                    <input
-                        type="password"
-                        name="password"
-                        placeholder="password"
-                        onChange={changeInput}
-                        value={form.password}
-                    />
-                </label>
-                <label>
-                    <p>Dirección</p>
-                    <input
-                        type="text"
-                        name="street"
-                        placeholder="Calle, numero y piso."
-                        onChange={changeInput}
-                        value={form.street}
-                    />
-                </label>
-                <label>
-                    <p>Código postal</p>
-                    <input
-                        type="text"
-                        name="postalCode"
-                        placeholder="cp"
-                        onChange={changeInput}
-                        value={form.postalCode}
-                    />
-                </label>
-                <label>
-                    <p>Ciudad</p>
-                    <input
-                        type="text"
-                        name="city"
-                        placeholder="Ciudad"
-                        onChange={changeInput}
-                        value={form.city}
-                    />
-                </label>
+                    <label>
+                        <p>Password</p>
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="password"
+                            onChange={changeInput}
+                            value={form.password}
+                        />
+                    </label>
+                    <label>
+                        <p>Dirección</p>
+                        <input
+                            type="text"
+                            name="street"
+                            placeholder="Calle, numero y piso."
+                            onChange={changeInput}
+                            value={form.street}
+                        />
+                    </label>
+                    <label>
+                        <p>Código postal</p>
+                        <input
+                            type="text"
+                            name="postalCode"
+                            placeholder="cp"
+                            onChange={changeInput}
+                            value={form.postalCode}
+                        />
+                    </label>
+                    <label>
+                        <p>Ciudad</p>
+                        <input
+                            type="text"
+                            name="city"
+                            placeholder="Ciudad"
+                            onChange={changeInput}
+                            value={form.city}
+                        />
+                    </label>
 
-                <button type="submit">Regístrate</button>
-                {error && <div>{error}</div>}
-            </form>
+                    <button type="submit" className="button">Regístrate</button>
+                    {error && <div>{error}</div>}
+                </form>
+            </div>
         </>
     );
 };

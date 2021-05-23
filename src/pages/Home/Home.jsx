@@ -2,7 +2,9 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { causesAsync } from '../../redux/reducers/causes.slice';
 import { Link } from "react-router-dom";
+
 import "./Home.scss"
+
 
 
 const Home = () => {
@@ -17,13 +19,15 @@ const Home = () => {
         // eslint-disable-next-line
     }, []);
 
-    console.log('allCauses:',allCauses);
+    //console.log('allCauses:',allCauses);
 
 
     return (
         <>
             <div className="home-container">
-                <div>Home</div>
+                <div>
+                    <img src="" alt="user avatar" />
+                </div>
                 <div>
                     {/* {allCauses[0].name} */}
                 </div>

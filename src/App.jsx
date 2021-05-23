@@ -40,7 +40,11 @@ const App = () => {
       <Router>
         <div className="app">
         <Navbar/>
-        <LogoutButton saveUser={saveUser}/>
+        <div className="button-div">
+            <div>
+                <LogoutButton saveUser={saveUser}/>
+            </div>
+        </div>
             {/* <Form /> */}
             <Switch>
                 <Route path="/" exact component={ Home }/>
