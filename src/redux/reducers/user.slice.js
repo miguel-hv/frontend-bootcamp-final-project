@@ -6,12 +6,10 @@ const INITIAL_STATE = {
     error: "",
 };
 
-export const registerAsync = createAsyncThunk("user/register", async (payload) => {
-        return {
+export const registerAsync = createAsyncThunk("user/register", async (payload) => ({
         response: await register(payload.form),
         // cb: payload.cb
-    }
-});
+}));
 
 export const loginAsync = createAsyncThunk("auth/login", async (payload) => ({
     response: await login(payload.form),
@@ -50,18 +48,18 @@ export const userSlice = createSlice({
                 else {
                     state.user = response;
                     state.error = "";
-                    cb();
+                    // cb();
                 }
             })
             .addCase(logoutAsync.fulfilled, (state, action) => {
                 const { response, cb } = action.payload;
 
-                if (response.message !== "Logout successful")
+                if (response.message !== "Logout correcto")
                     state.error = response.message;
                 else {
                     state.user = false;
                     state.error = "";
-                    cb();
+                    // cb();
                 }
             })
             .addCase(checkSessionAsync.fulfilled, (state, action) => {

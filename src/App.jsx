@@ -28,7 +28,7 @@ const App = () => {
       <Router>
         <div className="app">
         <Navbar/>
-        <LogoutButton />
+        {/* <LogoutButton /> */}
             <Switch>
                 <Route path="/" exact component={ Home }/>
                 <Route path="/donations" exact component={ Donations }/>

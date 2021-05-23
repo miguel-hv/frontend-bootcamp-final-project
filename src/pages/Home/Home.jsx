@@ -6,7 +6,7 @@ import "./Home.scss"
 
 
 const Home = () => {
-    
+
     const { user } = useSelector(state => state.user);
     const allCauses = useSelector(state => state.causes.allCauses);
     const dispatch = useDispatch();
@@ -25,9 +25,14 @@ const Home = () => {
             <div className="home-container">
                 <div>Home</div>
                 {user && 
-                    <span className="nav__user-message">
+                <div>
+                    <div>
+                        <img src={user.image} alt="avatar" />
+                    </div>
+                    <div>
                         ¡Hola {user.name}!
-                    </span>
+                    </div>
+                </div>
                 }
                 <div>
                     {allCauses.map((cause) => {

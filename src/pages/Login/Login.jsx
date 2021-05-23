@@ -19,7 +19,8 @@ const Login = (props) => {
 
         dispatch(loginAsync({
             form,
-            cb: redirect,
+            cb: null
+            // redirect,
         }));
         setForm(INITIAL_STATE);
     };
@@ -33,7 +34,7 @@ const Login = (props) => {
 
     return (
         <>
-            <h1 onClick={redirect}>Lógate</h1>
+            <h1>Lógate</h1>
             <form onSubmit={submit}>
                 <label>
                     <p>Email</p>

@@ -13,7 +13,8 @@ const Navbar = () => {
     }
 
     const logout = () => {
-        dispatch(logoutAsync(redirect));
+        dispatch(logoutAsync());
+        // dispatch(logoutAsync(redirect));
     };
 
     
@@ -29,9 +30,7 @@ const Navbar = () => {
                 </>}
 
                 {user && <>
-                    <span className="nav__user-message">
-                        Bienvenida, {user.name}
-                    </span>
+
                     <button onClick={logout}>Logout</button>
  
                 </>}
