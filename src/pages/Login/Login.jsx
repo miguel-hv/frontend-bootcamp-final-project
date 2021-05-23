@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { login } from "../../api/auth.api";
+import "./Login.scss"
 
 const INITIAL_STATE = {
     email:"",
@@ -44,7 +45,7 @@ const Login = (props) => {
 
     return (
         <>
-        <div>
+        <div className="login-box">
         <h1 onClick={redirect}>Lógate</h1> 
         <form onSubmit={submit} >
             <label>
@@ -68,7 +69,7 @@ const Login = (props) => {
                     value={form.password}
                     />
             </label>
-            <button type="submit">Lógate</button>
+            <button type="submit" className="login-button">Lógate</button>
 
             {error && <div>{error}</div> }
         </form>
