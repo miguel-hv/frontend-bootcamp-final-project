@@ -41,9 +41,9 @@ const App = () => {
         <div className="app">
         <Navbar/>
         <div className="button-div">
-            <div>
+            {/* <div>
                 <LogoutButton saveUser={saveUser}/>
-            </div>
+            </div> */}
         </div>
             {/* <Form /> */}
             <Switch>
@@ -59,6 +59,7 @@ const App = () => {
             </Switch>
             <Footer/>
         </div>
+        
         </Router>
     );
 };

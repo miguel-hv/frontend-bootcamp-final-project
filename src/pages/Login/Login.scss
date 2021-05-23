@@ -1,16 +1,18 @@
-.login-box{
+.login-box {
+   display: flex;
+   justify-content: center;
+}
+.login-title{
     text-align: center;
 }
 
-.login-button{
+.login-button {
     display: block;
     margin-left: 40%;
-    margin-top: 12px;
+    margin-top: 28px;
     border-radius: 20px;
     background-color: #4cc3b5;
     color: #ffffff;
     border-color: #ffffff;
     border-bottom-style: ridge;
 }
-
-

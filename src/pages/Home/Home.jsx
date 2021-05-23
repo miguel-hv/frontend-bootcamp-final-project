@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { causesAsync } from '../../redux/reducers/causes.slice';
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSync } from "@fortawesome/free-solid-svg-icons";
 
 import "./Home.scss"
 
@@ -25,6 +27,7 @@ const Home = () => {
     return (
         <>
             <div className="home-container">
+            <h1>R-cicl <FontAwesomeIcon icon={faSync} /></h1>
                 <div>
                     <img src="" alt="user avatar" />
                 </div>
