@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { loginAsync } from '../../redux/reducers/user.slice';
+import "./Login.scss";
 
 const INITIAL_STATE = {
     email: "",
@@ -34,33 +35,39 @@ const Login = (props) => {
 
     return (
         <>
-            <h1>Lógate</h1>
-            <form onSubmit={submit}>
-                <label>
-                    <p>Email</p>
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="tuemail@email.com"
-                        onChange={changeInput}
-                        value={form.email}
-                    />
-                </label>
+            <div className="login-box">
+                <div>
+                    <h1 className="login-title">Lógate</h1>
+                    <form onSubmit={submit}>
+                        <label>
+                            <p>Email</p>
+                            <input
+                                type="email"
+                                name="email"
+                                placeholder="tuemail@email.com"
+                                onChange={changeInput}
+                                value={form.email}
+                            />
+                        </label>
 
-                <label>
-                    <p>Password</p>
-                    <input
-                        type="password"
-                        name="password"
-                        placeholder="password"
-                        onChange={changeInput}
-                        value={form.password}
-                    />
-                </label>
-                <button type="submit">Lógate</button>
+                        <label>
+                            <p>Password</p>
+                            <input
+                                type="password"
+                                name="password"
+                                placeholder="password"
+                                onChange={changeInput}
+                                value={form.password}
+                            />
+                        </label>
+                        <button type="submit" className="login-button">
+                            Lógate
+                        </button>
 
-                {error && <div className="error">{error}</div>}
-            </form>
+                        {error && <div>{error}</div>}
+                    </form>
+                </div>
+            </div>
         </>
     );
 };

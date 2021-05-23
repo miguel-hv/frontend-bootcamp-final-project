@@ -28,7 +28,11 @@ const App = () => {
       <Router>
         <div className="app">
         <Navbar/>
-        {/* <LogoutButton /> */}
+        <div className="button-div">
+            {/* <div>
+                <LogoutButton saveUser={saveUser}/>
+            </div> */}
+        </div>
             <Switch>
                 <Route path="/" exact component={ Home }/>
                 <Route path="/donations" exact component={ Donations }/>
@@ -40,6 +44,7 @@ const App = () => {
             </Switch>
             <Footer/>
         </div>
+        
         </Router>
     );
 };

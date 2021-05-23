@@ -1,5 +1,7 @@
 import { useHistory } from 'react-router-dom';
 import { logout } from '../../api/auth.api';
+import "./LogoutButton.scss";
+
 
 const LogoutButton = (props) => {
     const history = useHistory();
@@ -11,7 +13,7 @@ const LogoutButton = (props) => {
     }
 
     return (
-        <button onClick={logoutUser}>Deslogate</button>
+        <button onClick={logoutUser} className="button-logout">Deslogate</button>
     )
 };
 

@@ -2,7 +2,12 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { causesAsync } from '../../redux/reducers/causes.slice';
 import { CauseCard } from '../../components';
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSync } from "@fortawesome/free-solid-svg-icons";
+
 import "./Home.scss"
+
 
 
 const Home = () => {
@@ -18,14 +23,18 @@ const Home = () => {
     }, []);
 
     // console.log('allCauses:',allCauses);
+    //console.log('allCauses:',allCauses);
 
 
     return (
         <>
             <div className="home-container">
-                <div>Home</div>
-                {user && 
+               
+                <h1>R-cicl <FontAwesomeIcon icon={faSync} /></h1>
                 <div>
+                    <img src="" alt="user avatar" />
+                </div>
+                {user &&  <div>
                     <div>
                         <img src={user.image} alt="avatar" />
                     </div>
