@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { causesAsync } from '../../redux/reducers/causes.slice';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { CauseCard } from '../../components';
 import "./Home.scss"
 
 
@@ -25,6 +26,10 @@ const Home = () => {
                 <div>Home</div>
                 <div>
                     {allCauses[0].name}
+                    {allCauses.map((cause) => {
+                return <CauseCard key={cause._id} cause={cause} />;
+            })}
+
                 </div>
                 <Link to="/donations"> Koalas on fire</Link>
             </div>
