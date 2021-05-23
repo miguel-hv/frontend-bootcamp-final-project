@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { registerAsync }  from "../../redux/reducers/users.slice";
+import { registerAsync } from "../../redux/reducers/users.slice";
 
 const INITIAL_STATE = {
     name: "",
     email: "",
     password: "",
+    image: "",
     street: "",
-    postalCode: "", 
+    postalCode: "",
     city: "",
 };
 
@@ -21,7 +22,7 @@ const Register = (props) => {
         ev.preventDefault();
 
         try {
-            dispatch(registerAsync(form))
+            dispatch(registerAsync(form));
             setForm(INITIAL_STATE);
             props.history.push("/");
         } catch (error) {
@@ -41,12 +42,11 @@ const Register = (props) => {
             <Link to="/login">
                 <h1>Login</h1>
             </Link>
-            <form onSubmit={submit}>
+            <form onSubmit={submit} encType="multipart/form-data">
                 <label>
                     <p>Nombre de usuarie</p>
                     <input
                         type="text"
-                        id="name"
                         name="name"
                         placeholder="Nombre"
                         onChange={changeInput}
@@ -57,11 +57,19 @@ const Register = (props) => {
                     <p>Email</p>
                     <input
                         type="email"
-                        id="email"
                         name="email"
                         placeholder="tuemail@email.com"
                         onChange={changeInput}
                         value={form.email}
+                    />
+                </label>
+                <label>
+                    <p>Foto de perfil</p>
+                    <input
+                        type="file"
+                        name="image"
+                        onChange={changeInput}
+                        value={form.image}
                     />
                 </label>
 
@@ -69,7 +77,6 @@ const Register = (props) => {
                     <p>Password</p>
                     <input
                         type="password"
-                        id="password"
                         name="password"
                         placeholder="password"
                         onChange={changeInput}
@@ -80,7 +87,6 @@ const Register = (props) => {
                     <p>Dirección</p>
                     <input
                         type="text"
-                        id="address"
                         name="street"
                         placeholder="Calle, numero y piso."
                         onChange={changeInput}
@@ -91,7 +97,6 @@ const Register = (props) => {
                     <p>Código postal</p>
                     <input
                         type="text"
-                        id="postalCode"
                         name="postalCode"
                         placeholder="cp"
                         onChange={changeInput}
@@ -102,7 +107,6 @@ const Register = (props) => {
                     <p>Ciudad</p>
                     <input
                         type="text"
-                        id="city"
                         name="city"
                         placeholder="Ciudad"
                         onChange={changeInput}

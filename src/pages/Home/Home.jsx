@@ -21,13 +21,15 @@ const Home = () => {
 
 
     return (
+        <>
             <div className="home-container">
                 <div>Home</div>
                 <div>
-                    {allCauses[0].name}
+                    {/* {allCauses[0].name} */}
                 </div>
                 <Link to="/donations"> Koalas on fire</Link>
             </div>
+        </>    
     );
 };
 
