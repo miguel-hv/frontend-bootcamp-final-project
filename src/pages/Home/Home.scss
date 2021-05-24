@@ -1,20 +1,28 @@
-
+.home-box{
+    display: flex;
+    justify-content: space-around;
+}
 .home-wrap{
+    
     padding: var(--margin-main);
 }
 
 .user-profile{
     display: flex;
     justify-content: space-between;
-    // margin: var(--margin-main);
     margin-top: 20px;
     
+
     &__avatar{
         position: relative;
         width: 100px;
         height: 100px;
         overflow: hidden;
         border-radius: 50%;
+    }
+
+    &__welcome{
+        margin-left: 28px;
     }
 }
 
@@ -25,6 +33,8 @@
 }
 
 .image{
+
+  
     // &__avatar{
     //     margin-top: 20px;
     // }

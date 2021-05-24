@@ -34,7 +34,9 @@ const Navbar = () => {
 
                 {user && (
                     <>
-                        <button onClick={logout} className="button-logout">Logout</button>
+                        <button onClick={logout} className="button-logout">
+                            Logout
+                        </button>
                     </>
                 )}
             </nav>
