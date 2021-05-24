@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { causesAsync } from './redux/reducers/causes.slice';
-import { Footer, LogoutButton, Navbar } from './components';
+import { Footer, Navbar } from './components';
 import { 
     Home, 
     Donations, 
