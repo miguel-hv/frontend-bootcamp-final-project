@@ -8,7 +8,7 @@ const INITIAL_STATE = {
 
 export const registerAsync = createAsyncThunk("user/register", async (payload) => ({
         response: await register(payload.form),
-        // cb: payload.cb
+        
 }));
 
 export const loginAsync = createAsyncThunk("auth/login", async (payload) => ({
@@ -31,35 +31,35 @@ export const userSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(registerAsync.fulfilled, (state, action) => {
-                const { response, cb } = action.payload;
+                const { response } = action.payload;
 
                 if (response.message) state.error = response.message;
                 else {
                     state.user = response;
                     state.error = '';
-                    // cb();
+                   
                 };
 
             })
             .addCase(loginAsync.fulfilled, (state, action) => {
-                const { response, cb } = action.payload;
+                const { response } = action.payload;
 
                 if (response.message) state.error = response.message;
                 else {
                     state.user = response;
                     state.error = "";
-                    // cb();
+                    
                 }
             })
             .addCase(logoutAsync.fulfilled, (state, action) => {
-                const { response, cb } = action.payload;
+                const { response } = action.payload;
 
                 if (response.message !== "Logout correcto")
                     state.error = response.message;
                 else {
                     state.user = false;
                     state.error = "";
-                    // cb();
+                   
                 }
             })
             .addCase(checkSessionAsync.fulfilled, (state, action) => {
