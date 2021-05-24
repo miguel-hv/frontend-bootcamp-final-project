@@ -22,6 +22,7 @@ const Navbar = () => {
     return (
 
         <>
+        <nav className="navbar">
             <div>
                 {!user && <>
                     <Link to="/login">Login</Link>
@@ -32,15 +33,9 @@ const Navbar = () => {
                     <button onClick={logout}>Logout</button>
                 </>}
             </div>
-
-            <nav className="navbar">
-                <div className="link-box">
-                    <Link to="/register">Regístrate</Link>
-                </div>   
-                <div className="link-box">
-                    <Link to="/login">Lógate</Link>
-                </div> 
-            </nav>
+        </nav>
+            
+            
         </>
     );
 };

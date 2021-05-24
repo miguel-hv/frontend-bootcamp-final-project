@@ -31,7 +31,7 @@ export const userSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(registerAsync.fulfilled, (state, action) => {
-                const { response, cb } = action.payload;
+                const { response } = action.payload;
 
                 if (response.message) state.error = response.message;
                 else {
@@ -42,7 +42,7 @@ export const userSlice = createSlice({
 
             })
             .addCase(loginAsync.fulfilled, (state, action) => {
-                const { response, cb } = action.payload;
+                const { response } = action.payload;
 
                 if (response.message) state.error = response.message;
                 else {
@@ -52,7 +52,7 @@ export const userSlice = createSlice({
                 }
             })
             .addCase(logoutAsync.fulfilled, (state, action) => {
-                const { response, cb } = action.payload;
+                const { response } = action.payload;
 
                 if (response.message !== "Logout correcto")
                     state.error = response.message;
