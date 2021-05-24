@@ -14,7 +14,8 @@ const Footer = () => {
                 </div>
 
                 <div>
-                    <Link to="/pickups">
+                    {/* <Link to="/pickups"> */}
+                    <Link to="">
                         <FontAwesomeIcon icon={faTruck} />
                     </Link>
                 </div>

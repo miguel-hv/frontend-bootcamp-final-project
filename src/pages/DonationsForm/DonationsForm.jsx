@@ -85,7 +85,7 @@ const DonationsForm = (props) => {
                         name="surname"
                         placeholder="surname"
                         onChange={changeInput}
-                        value={form.name}
+                        value={form.surname}
                     />
                 </label>
 
@@ -99,7 +99,7 @@ const DonationsForm = (props) => {
                         value={form.email}
                     />
                 </label>
-
+{/* 
                 <label htmlFor="hideName">
                     <p>Ocultar nombre</p>
                     <input
@@ -109,7 +109,7 @@ const DonationsForm = (props) => {
                         onChange={changeInput}
                         value={form.hideName}
                     />
-                </label>
+                </label> */}
 
                 <label htmlFor="postalCode">
                     <input
