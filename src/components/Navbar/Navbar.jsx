@@ -14,8 +14,7 @@ const Navbar = () => {
     };
 
     const logout = () => {
-        dispatch(logoutAsync());
-        // dispatch(logoutAsync(redirect));
+        dispatch(logoutAsync(redirect));
     };
 
     return (
