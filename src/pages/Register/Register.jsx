@@ -44,7 +44,9 @@ const Register = (props) => {
             {/* <Link to="/login">
                 <h4>Ve a login</h4>
             </Link> */}
+            
             <div className="form-box">
+            <div>
                 <form onSubmit={submit} encType="multipart/form-data" className="register-form">
                     <label>
                         <p>Nombre de usuarie</p>
@@ -120,6 +122,7 @@ const Register = (props) => {
                     <button type="submit" className="button">Regístrate</button>
                     {error && <div>{error}</div>}
                 </form>
+                </div>
             </div>
         </>
     );
