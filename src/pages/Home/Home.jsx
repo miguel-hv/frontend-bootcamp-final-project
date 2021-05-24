@@ -16,6 +16,7 @@ const Home = (props) => {
 
     return (
         <>
+        <div className="home-box">
             <div className="home-wrap">                            
 
                 {user &&  <div className="user-profile">
@@ -33,6 +34,7 @@ const Home = (props) => {
                 return <CauseCard key={`${cause._id}-${cause.name}`} cause={cause} />;
                 })}
                 </div>
+            </div>
             </div>
         </>    
     );
