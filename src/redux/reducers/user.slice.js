@@ -37,7 +37,7 @@ export const userSlice = createSlice({
                 else {
                     state.user = response;
                     state.error = '';
-                    //cb();
+                    cb();
                 };
 
             })
@@ -48,7 +48,7 @@ export const userSlice = createSlice({
                 else {
                     state.user = response;
                     state.error = "";
-                    //cb();
+                    cb();
                 }
             })
             .addCase(logoutAsync.fulfilled, (state, action) => {
@@ -59,7 +59,7 @@ export const userSlice = createSlice({
                 else {
                     state.user = false;
                     state.error = "";
-                    //cb();
+                    cb();
                 }
             })
             .addCase(checkSessionAsync.fulfilled, (state, action) => {
