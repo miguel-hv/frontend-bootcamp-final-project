@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { login } from "../../api/auth.api";
+import { useDispatch, useSelector } from 'react-redux';
+import { loginAsync } from '../../redux/reducers/user.slice';
 import "./Login.scss";
 
 const INITIAL_STATE = {
@@ -8,21 +9,21 @@ const INITIAL_STATE = {
 };
 
 const Login = (props) => {
+    const dispatch = useDispatch();
     const [form, setForm] = useState(INITIAL_STATE);
-    const [error, setError] = useState("");
+    const error = useSelector(state => state.user.error);
+
+    const redirect = () => props.history.push('/');
 
     const submit = async (ev) => {
         ev.preventDefault();
 
-        try {
-            const user = await login(form);
-            console.log("usuario logado", user);
-            props.saveUser(user);
-            setForm(INITIAL_STATE);
-            props.history.push("/");
-        } catch (error) {
-            setError(error.message);
-        }
+        dispatch(loginAsync({
+            form,
+            cb: null
+            // redirect,
+        }));
+        setForm(INITIAL_STATE);
     };
 
     const changeInput = (ev) => {
@@ -31,17 +32,12 @@ const Login = (props) => {
         setForm({ ...form, [name]: value });
     };
 
-    const redirect = () => {
-        props.history.push({
-            pathname: "/register",
-        });
-    };
 
     return (
         <>
             <div className="login-box">
                 <div>
-                    <h1 onClick={redirect} className="login-title">Lógate</h1>
+                    <h1 className="login-title">Lógate</h1>
                     <form onSubmit={submit}>
                         <label>
                             <p>Email</p>

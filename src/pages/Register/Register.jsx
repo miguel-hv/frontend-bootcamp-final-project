@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { registerAsync } from "../../redux/reducers/user.slice";
 import { Link } from "react-router-dom";
-import { registerAsync } from "../../redux/reducers/users.slice";
 import "./Register.scss";
 
 
@@ -16,21 +16,21 @@ const INITIAL_STATE = {
 };
 
 const Register = (props) => {
-    const [form, setForm] = useState(INITIAL_STATE);
     const dispatch = useDispatch();
-    const [error, setError] = useState("");
+    const [form, setForm] = useState(INITIAL_STATE);
+    const error = useSelector(state => state.user.error);
+
+    const redirect = () => props.history.push('/');
 
     const submit = async (ev) => {
         ev.preventDefault();
 
-        try {
-            dispatch(registerAsync(form));
-            setForm(INITIAL_STATE);
-            props.history.push("/");
-        } catch (error) {
-            setError(error.message);
-            console.log(error);
-        }
+
+        dispatch(registerAsync({
+            form,
+            // cb: redirect,
+        }));
+        setForm(INITIAL_STATE);
     };
 
     const changeInput = (ev) => {
@@ -41,10 +41,6 @@ const Register = (props) => {
 
     return (
         <>
-            {/* <Link to="/login">
-                <h4>Ve a login</h4>
-            </Link> */}
-            
             <div className="form-box">
             <div>
                 <form onSubmit={submit} encType="multipart/form-data" className="register-form">
