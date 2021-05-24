@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { causesAsync } from './redux/reducers/causes.slice';
 import { Footer, LogoutButton, Navbar } from './components';
 import { 
     Home, 
@@ -17,10 +18,13 @@ import { checkSessionAsync } from './redux/reducers/user.slice';
 
 
 const App = () => {
+    const { user } = useSelector(state => state.user);
+    const allCauses = useSelector(state => state.causes.allCauses);
     const dispatch = useDispatch();
     
     useEffect(() => {
         dispatch(checkSessionAsync());
+        dispatch(causesAsync());
         // eslint-disable-next-line
     }, []);
 
@@ -28,8 +32,9 @@ const App = () => {
       <Router>
         <div className="app">
         <Navbar/>
+        {/* <Home/> */}
             <Switch>
-                <Route path="/" exact component={ Home }/>
+                <Route path="/" exact component={ (props) => <Home {...props} user={user} allCauses={allCauses}/> }/>
                 <Route path="/donations" exact component={ Donations }/>
                 <Route path="/donations/form" exact component={ DonationsForm }/>
                 <Route path="/pickups" exact component={ Pickups }/>

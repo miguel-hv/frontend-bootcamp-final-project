@@ -1,0 +1,11 @@
+:root{
+    --cause-width: 180px;
+    --cause-height: 160px;
+}
+.cause{
+    max-width: var(--cause-width);
+    max-height: var(--cause-height);
+    &__name{
+        margin: 0px;
+    }
+}

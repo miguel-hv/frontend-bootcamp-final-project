@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { causesAsync } from '../../redux/reducers/causes.slice';
+import { useDispatch } from 'react-redux';
 import { CauseCard } from '../../components';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSync } from "@fortawesome/free-solid-svg-icons";
@@ -9,17 +8,9 @@ import "./Home.scss"
 
 
 
-const Home = () => {
+const Home = (props) => {
 
-    const { user } = useSelector(state => state.user);
-    const allCauses = useSelector(state => state.causes.allCauses);
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-
-        dispatch(causesAsync());
-        // eslint-disable-next-line
-    }, []);
+    const {user, allCauses} = props;
 
     // console.log('allCauses:',allCauses);
     //console.log('allCauses:',allCauses);
@@ -39,7 +30,7 @@ const Home = () => {
                     </div>
                 </div>
                 }
-                <div>
+                <div className="causes-wrap">
                     {allCauses.map((cause) => {
                 return <CauseCard key={`${cause._id}-${cause.name}`} cause={cause} />;
                 })}

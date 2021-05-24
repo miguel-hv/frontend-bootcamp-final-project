@@ -28,7 +28,7 @@ const Register = (props) => {
 
         dispatch(registerAsync({
             form,
-            // cb: redirect,
+            cb: redirect,
         }));
         setForm(INITIAL_STATE);
     };

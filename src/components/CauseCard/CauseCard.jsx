@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import "./CauseCard.scss";
 
 const CauseCard = (props) => {
 
@@ -7,10 +8,10 @@ const CauseCard = (props) => {
     return (
 
         <Link to="/donations"> 
-        
-            <h2>{cause.name}</h2>
-            <img className="image" src= {cause.image} alt="cause" />
-
+            <div className="cause">
+                <h3 className="cause__name">{cause.name}</h3>
+                <img className="image" src= {cause.image} alt="cause" />
+            </div>           
         </Link>
     )
 

@@ -13,15 +13,16 @@ const Login = (props) => {
     const [form, setForm] = useState(INITIAL_STATE);
     const error = useSelector(state => state.user.error);
 
-    const redirect = () => props.history.push('/');
+    const redirect = () => setTimeout(
+        props.history.push('/')
+    ,1000);
 
     const submit = async (ev) => {
         ev.preventDefault();
 
         dispatch(loginAsync({
             form,
-            cb: null
-            // redirect,
+            cb: redirect,
         }));
         setForm(INITIAL_STATE);
     };
