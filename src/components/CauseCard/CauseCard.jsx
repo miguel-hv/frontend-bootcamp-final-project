@@ -9,7 +9,7 @@ const CauseCard = (props) => {
         <Link to="/donations"> 
         
             <h2>{cause.name}</h2>
-            <img src= {cause.image} alt="cause" />
+            <img className="image" src= {cause.image} alt="cause" />
 
         </Link>
     )

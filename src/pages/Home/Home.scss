@@ -1,3 +1,31 @@
-.home-container{
+
+.home-wrap{
+    padding: var(--margin-main);
+}
+
+.user-profile{
+    display: flex;
+    justify-content: space-between;
+    // margin: var(--margin-main);
+    margin-top: 20px;
     
+    &__avatar{
+        position: relative;
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+        border-radius: 50%;
+    }
+}
+
+.logo-main{
+    font-size: 2.8em;
+    margin: 0px;
+    margin-top: var(--margin-main);
+}
+
+.image{
+    // &__avatar{
+    //     margin-top: 20px;
+    // }
 }

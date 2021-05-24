@@ -28,11 +28,6 @@ const App = () => {
       <Router>
         <div className="app">
         <Navbar/>
-        <div className="button-div">
-            {/* <div>
-                <LogoutButton saveUser={saveUser}/>
-            </div> */}
-        </div>
             <Switch>
                 <Route path="/" exact component={ Home }/>
                 <Route path="/donations" exact component={ Donations }/>
